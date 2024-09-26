@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello HomeController!{% endblock %}
+
+{% block body %}
+     <header class="relative flex items-center justify-center h-screen overflow-hidden">
+        <div class="relative z-30 p-5 text-2xl text-white max-w-2xl space-y-9">
+            <div class="flex justify-center">
+                <img class="inline-block w-28" src="{{ asset('media/logo.svg') }}" alt="Relocation Genevoise logo">
+            </div>
+            <div class="space-y-3 mt-24">
+                <p class="text-sm text-justify">Relocation Genevoise offers premium relocation services across Switzerland for corporates and individuals, ensuring seamless transitions.</p>
+                <p class="text-sm text-justify">From home searches to school placements, we tailor solutions to meet clients’ needs. Our expert-driven services make your move stress-free, helping you settle with ease.</p>
+                <p class="text-sm text-justify italic font-semibold">When relocation is about more than just moving, expertise becomes the key to a successful transition.</p>
+            </div>
+            <div>
+                <p class="text-sm text-justify">Contact-us:
+                <span class="text-sm underline underline-offset-4">contact@relocation-genevoise.ch</span> //
+                <span class="text-sm underline underline-offset-4">WA: +41 78 337 15 28</span>
+                </p>
+            </div>
+        </div>
+        <video class="absolute z-10 w-auto min-w-full min-h-full max-w-none" autoplay loop muted playsinline>
+            {% if 'Firefox' in app.request.headers.get('User-Agent') %}
+                <source src="{{ asset('media/videos/bg-home.webm') }}" type="video/mp4">
+            {% else %}
+                <source src="{{ asset('media/videos/bg-home.mp4') }}" type="video/mp4">
+            {% endif %}
+            Votre navigateur ne prend pas en charge les vidéos.
+        </video>
+        <div class="absolute z-20 top-0 left-0 w-full h-full bg-gray-900 opacity-70"></div>
+    </header>
+{% endblock %}
